@@ -1,28 +1,28 @@
 @ECHO off
 REM *****************************************************************************************
 REM Set your compiler and another features here. Possible VC1, VC11 
-REM currently possible VC10 (MS Visual studio 10 Pro) and VC11 (MS Visual studio 11 or 2012 Pro/Ultimate)
+REM currently possible VC12 (MS Visual studio 13 Pro) and VC11 (MS Visual studio 11 or 2012 Pro/Ultimate)
 REM Warning! VS Express edition not supported! Also need check path (below) to VC10/11 binary
-SET compiler=VC11
+SET compiler=VC12
 REM Install path for MaNGOS (in this be created ./bin and ./etc folders)
 SET INSTALL_PATH="C:\\GAMES\\MaNGOS"
 rem Platform for build. Possible Win32, Win64. Warning! Win64 build possible only on 64-bit main OS!
 SET BUILD_PLATFORM=Win32
 rem Count of cores on PC, where project compiled. for speedup only
-SET CORE_NUMBER=4
+SET CORE_NUMBER=2
 rem Used mangos memory manager. Possible managers - STD, TBB (not recommended), FASTMM (default)
 SET MEMORY_MANAGER=FASTMM
 REM *****************************************************************************************
-if %compiler%==VC11 goto :vc11
+if %compiler%==VC12 goto :vc12
 if %compiler%==VC10 goto :vc10
 goto :help
 REM *****************************************************************************************
-:vc11
-SET COMPILER="Visual Studio 11"
-if %BUILD_PLATFORM%==Win64 (SET COMPILER="Visual Studio 11 Win64")
-SET COMPILER_PATH="C:/Program Files (x86)/Microsoft Visual Studio 11.0/VC/bin/cl.exe"
-SET LINKER_PATH="C:/Program Files (x86)/Microsoft Visual Studio 11.0/VC/bin/link.exe"
-SET VC_VARS="C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\"
+:vc12
+SET COMPILER="Visual Studio 12"
+if %BUILD_PLATFORM%==Win64 (SET COMPILER="Visual Studio 12 Win64")
+SET COMPILER_PATH="C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/bin/cl.exe"
+SET LINKER_PATH="C:/Program Files (x86)/Microsoft Visual Studio 12.0/VC/bin/link.exe"
+SET VC_VARS="C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\"
 goto :common
 REM *****************************************************************************************
 :vc10
